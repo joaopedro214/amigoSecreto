@@ -17,6 +17,12 @@ function adicionar() {
         alert('Por favor, digite um nome');
         return;
     }
+    
+    if(amigos.includes(nomeAmigo)) {
+        alert('Diferencie os nomes dos amigos');
+        document.getElementById('nome-amigo').value = '';
+        return;
+    }
 
     if(listaAmigos.textContent == '') {
         listaAmigos.textContent = nomeAmigo;
@@ -31,11 +37,16 @@ function adicionar() {
 
 function sortear() {
 
+    if(amigos.length < 4) {
+        alert('Insira ao menos 4 amigos para sortear');
+        return;
+    }
+
     embaralha(amigos)
     let listaSorteio = document.getElementById('lista-sorteio');
 
     for (let i = 0; i < amigos.length; i++) {
-        
+
         if (i == amigos.length - 1) {
             listaSorteio.innerHTML = listaSorteio.innerHTML + amigos[i] + ' --> ' + amigos[0] + '<br>'
         } else {
