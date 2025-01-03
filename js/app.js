@@ -1,12 +1,3 @@
-// Pegar os nomes do input do html
-// Armazenar eles em uma variável
-// Adicionar os nomes no campo "Amigos incluídos" do html
-// Sortear os nomes randomicamente 
-// Validar o sorteio de forma que nenhum nome caia com a ele mesmo
-// Reiniciar apagar todos os valores gerados 
-
-
-
 let amigos = [];
 
 function adicionar() {
@@ -18,11 +9,19 @@ function adicionar() {
         return;
     }
     
-    if(amigos.includes(nomeAmigo)) {
-        alert('Diferencie os nomes dos amigos');
-        document.getElementById('nome-amigo').value = '';
-        return;
+    if (amigos.includes(nomeAmigo.toUpperCase())) { 
+        if (nomeAmigo !== nomeAmigo.toUpperCase()) { 
+            alert('Diferencie os nomes dos amigos'); 
+            document.getElementById('nome-amigo').value = ''; 
+            return; 
+        }else { 
+            console.log("O nome já está em maiúsculas."); 
+        } 
     }
+
+    
+    console.log(amigos); 
+    
 
     if(listaAmigos.textContent == '') {
         listaAmigos.textContent = nomeAmigo;
